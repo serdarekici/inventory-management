@@ -22,6 +22,11 @@ Before diving into formulas, let's visualize how inventory flows:
 - **Lead Time**: Time gap between placing an order and receiving the stock
 - **Reorder Point**: The inventory level that triggers a new purchase order
 
+## Reorder Point Visualization
+
+![Reorder Point](assets/reorderpoint.jpg)
+
+
 ---
 
 ## **The 9-Box Analysis: Smart Classification for Spare Parts**
@@ -220,9 +225,7 @@ By tailoring service levels to part classifications, you achieve:
 
 ## **The Three Pillars of Inventory Optimization**
 
-## Reorder Point Visualization
 
-![Reorder Point](assets/reorderpoint.jpg)
 
 
 ### **1. Economic Order Quantity (EOQ)**
