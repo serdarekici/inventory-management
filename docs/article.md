@@ -331,7 +331,6 @@ Let's calculate Safety Stock, Reorder Point, and EOQ for a hypothetical spare pa
 - If this same part were **AH** (high variability), it would only get 95% service level
 - This reflects: **both value AND demand predictability drive service levels** - the sweet spot is high-value + stable demand
 
----![Uploading rorderpoint.jpeg…]()
 
 
 ### **✅ Step 1: EOQ Calculation**
