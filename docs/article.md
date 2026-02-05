@@ -220,6 +220,11 @@ By tailoring service levels to part classifications, you achieve:
 
 ## **The Three Pillars of Inventory Optimization**
 
+## Reorder Point Visualization
+
+![Reorder Point](../assets/reorderpoint.jpg)
+
+
 ### **1. Economic Order Quantity (EOQ)**
 
 **Definition:** EOQ is the optimal order quantity that minimizes the total cost of ordering and holding inventory. It balances ordering costs (paperwork, processing, shipping) against holding costs (storage, insurance, obsolescence).
