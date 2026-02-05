@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Inventory Optimization Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body { padding: 24px; }
+    .kpi { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .small-note { color: #666; }
+    table { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-3">Inventory Optimization Demo</h2>
+    <p class="small-note mb-4">9-Box + EOQ + Safety Stock + Reorder Point (sample CSV data)</p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="kpi">
+          <div class="small-note">Current inventory value</div>
+          <div class="h4">${{ "{:,.0f}".format(summary.current_inventory_value) }}</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kpi">
+          <div class="small-note">Projected inventory value</div>
+          <div class="h4">${{ "{:,.0f}".format(summary.projected_inventory_value) }}</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kpi">
+          <div class="small-note">Orders / Reduce impact</div>
+          <div class="mono">+${{ "{:,.0f}".format(summary.orders_total) }} / -${{ "{:,.0f}".format(summary.reduce_total) }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <div class="kpi">
+          <div class="small-note mb-2">ABC counts</div>
+          <pre class="mb-0 mono">{{ summary.category_counts }}</pre>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="kpi">
+          <div class="small-note mb-2">9-Box counts</div>
+          <pre class="mb-0 mono">{{ summary.nine_box_counts }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi mb-4">
+      <div class="small-note mb-2">Aggregated recommendations</div>
+      <table class="table table-sm">
+        <thead><tr><th>Action</th><th>Category</th><th>Count</th></tr></thead>
+        <tbody>
+          {% for r in aggregated %}
+          <tr><td>{{ r.Action }}</td><td>{{ r.Category }}</td><td>{{ r.Count }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kpi">
+      <div class="small-note mb-2">Top recommendations (sample)</div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th>Part</th><th>Action</th><th>Qty</th><th>Category</th><th>9-Box</th>
+              <th>OnHand</th><th>PO</th><th>ROP</th><th>EOQ</th><th>UnitCost</th><th>Δ Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in recommendations %}
+            <tr>
+              <td><a href="/part/{{ r.PartNum }}">{{ r.PartNum }}</a></td>
+              <td>{{ r.Action }}</td>
+              <td>{{ r.Calculated_Quantity }}</td>
+              <td>{{ r.Category }}</td>
+              <td>{{ r["9_box"] }}</td>
+              <td>{{ r.OnHandQty }}</td>
+              <td>{{ r.TotalPOQty }}</td>
+              <td>{{ r.ReorderPoint }}</td>
+              <td>{{ r.EOQ }}</td>
+              <td>${{ "{:,.2f}".format(r.UnitCost) }}</td>
+              <td>${{ "{:,.0f}".format(r.ChangeValue) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="mt-4 small-note">If sample data is missing: run <span class="mono">python scripts/build_demo_data.py</span></p>
+  </div>
+</body>
+</html>

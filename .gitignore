@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Env / secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+credentials*
+*secret*
+*token*
+
+# Data (keep placeholders only)
+data/raw/
+data/exports/
+data/*.db
+data/*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
