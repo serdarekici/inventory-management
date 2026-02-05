@@ -222,7 +222,7 @@ By tailoring service levels to part classifications, you achieve:
 
 ## Reorder Point Visualization
 
-![Reorder Point](../assets/reorderpoint.jpg)
+![Reorder Point](assets/reorderpoint.jpg)
 
 
 ### **1. Economic Order Quantity (EOQ)**
