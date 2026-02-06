@@ -1,5 +1,16 @@
 # **Data-Driven Inventory Management: Optimizing Spare Parts with 9-Box Analysis, EOQ, and Safety Stock**
 
+## 📢 Related Business Article
+
+This repository is the technical implementation of my business-focused inventory optimization framework.
+
+For a strategic and operational perspective on why classical inventory methods fall short — and how 9-Box segmentation transforms decision-making — you can read my LinkedIn article:
+
+🔗 https://www.linkedin.com/pulse/why-classic-inventory-management-enough-how-9-box-makes-serdar-ekici-yvrhf/?trackingId=oRezLPNElQYG9LGbJMiR9w%3D%3D
+
+This article complements the technical models presented here by explaining the real-world operational challenges, financial trade-offs, and service-level implications of spare parts inventory management.
+
+---
 ## **Introduction**
 
 In manufacturing and maintenance operations, spare parts management is often the unsung hero of operational efficiency. Stock too little, and you risk costly downtime. Stock too much, and you tie up capital in inventory that sits idle on shelves. The key lies in finding the sweet spot through proven inventory optimization techniques.
